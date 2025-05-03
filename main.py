@@ -1,9 +1,12 @@
+import os
+
 from compare_jsons import get_delta_json, get_patched_json
 from xml_worker import XMLWorker
 
 if __name__ == '__main__':
     f = XMLWorker('impulse_test_input.xml')
     folder = 'out/'
+    os.makedirs(folder, exist_ok=True)
     f.generate_config(folder + 'config.xml')
     f.generate_json(folder + 'meta.json')
 
